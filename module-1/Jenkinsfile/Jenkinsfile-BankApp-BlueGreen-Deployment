@@ -40,7 +40,7 @@ pipeline{
                 script{
                     def mavenPom = readMavenPom file: 'pom.xml'
                     def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "maven-snapshot" : "maven-release"
-                    nexusArtifactUploader artifacts: [[artifactId: 'bankapp', classifier: '', file: 'target/bankapp-0.0.1-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: 'nexus.singhritesh85.com', nexusVersion: 'nexus3', protocol: 'https', repository: "${nexusRepoName}", version: "${mavenPom.version}"
+                    nexusArtifactUploader artifacts: [[artifactId: 'bankapp', classifier: '', file: "target/bankapp-${mavenPom.version}.jar", type: 'jar']], credentialsId: 'nexus', groupId: 'com.example', nexusUrl: 'nexus.singhritesh85.com', nexusVersion: 'nexus3', protocol: 'https', repository: "${nexusRepoName}", version: "${mavenPom.version}"
                 }    
             }
         }
