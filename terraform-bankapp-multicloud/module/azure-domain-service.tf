@@ -104,6 +104,7 @@ resource "azuread_group_member" "admin" {
 # Published app for domain services
 resource "azuread_service_principal" "ds_service_principal" {
   client_id = "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+  use_existing = true
 }
 
 # Creation of Azure Entra Domain Services
